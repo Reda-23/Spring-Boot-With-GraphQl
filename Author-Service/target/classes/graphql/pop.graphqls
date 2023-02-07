@@ -1,0 +1,36 @@
+type Query{
+    getBookById(id : String) : Book
+    authorList : [Author]
+    bookList : [Book]
+
+}
+
+type Mutation{
+    saveBook(book : savedBook) : Book
+}
+input savedBook{
+    id : String,
+    name : String,
+    bookType : Type
+}
+
+type Book {
+    id : String,
+    name : String,
+    bookType : Type,
+    author : Author
+}
+
+type Author {
+    id :String,
+    name: String,
+    email : String,
+    age : Int ,
+    books: [Book]
+}
+
+enum Type {
+    HORROR,
+    CLASSICES,
+    YOUNG_ADULT
+}
